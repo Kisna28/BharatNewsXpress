@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "1061294421602",
+    "project_id": "bharat-newsxpress",
+    "storage_bucket": "bharat-newsxpress.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1061294421602:android:1cd54e5822b3413ce9833b",
+        "android_client_info": {
+          "package_name": "com.example.bharatnewsxpress"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1061294421602-b29ut991igd8aivdvb00htchf1lg4rpb.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.bharatnewsxpress",
+            "certificate_hash": "8ef9fb1471417a74c1288d21ff0b3722d206c4d7"
+          }
+        },
+        {
+          "client_id": "1061294421602-169f3dnreqeikadoa35ecd762tqf1dp2.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDEmY6zRQNNk1SD3MdFnCkCGmKDLNayz5M"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1061294421602-169f3dnreqeikadoa35ecd762tqf1dp2.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
