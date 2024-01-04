@@ -6,6 +6,7 @@ import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.util.Patterns
 import android.widget.Switch
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatDelegate
@@ -45,7 +46,7 @@ class LogInActivity : AppCompatActivity() {
             val intent = Intent(this, SignUpActivity::class.java)
             startActivity(intent)
         }
-            binding.textViewlog.setOnClickListener {
+        binding.textViewlog.setOnClickListener {
             val intent = Intent(this, SignUpActivity::class.java)
             startActivity(intent)
         }
@@ -53,10 +54,10 @@ class LogInActivity : AppCompatActivity() {
             val email = binding.email.text.toString()
             val pass = binding.password.text.toString()
 
-
-
             if (email.isNotEmpty() && pass.isNotEmpty()) {
-
+                if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
+                    Toast.makeText(this, "Enter Vailed Email Addressee", Toast.LENGTH_SHORT).show()
+                }
                 firebaseAuth.signInWithEmailAndPassword(email, pass)
                     .addOnCompleteListener {
                         if (it.isSuccessful) {
@@ -78,18 +79,17 @@ class LogInActivity : AppCompatActivity() {
         }
 
     }
+
     override fun onStart() {
         super.onStart()
         // Check if user is signed in (non-null) and update UI accordingly.
         var currentUser = firebaseAuth.getCurrentUser()
         updateUI(currentUser)
     }
+
     private fun updateUI(currentUser: FirebaseUser?) {
         if (currentUser != null) {
-            // User is signed in, meaning the user is registered
-            // You can perform actions for a signed-in user here
-            // For example, you might navigate to a home screen or display a welcome message
-            // You can also retrieve user information using currentUser
+
             val uid = currentUser.uid
             val email = currentUser.email
             val intent = Intent(this, MainActivity::class.java)
@@ -102,6 +102,7 @@ class LogInActivity : AppCompatActivity() {
             // For example, you might display a login or registration screen
         }
     }
+
     private fun applyTheme() {
         // Retrieve the saved theme preference and set the theme
         val isDarkMode = getThemePreference()
@@ -111,6 +112,7 @@ class LogInActivity : AppCompatActivity() {
             AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
         }
     }
+
     private fun saveThemePreference(isDarkMode: Boolean) {
         // Save the theme preference
         val prefs: SharedPreferences = getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE)
@@ -118,10 +120,14 @@ class LogInActivity : AppCompatActivity() {
         editor.putBoolean(PREFS_KEY_THEME, isDarkMode)
         editor.apply()
     }
-        private fun getThemePreference(): Boolean {
-            val prefs: SharedPreferences = getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE)
-            return prefs.getBoolean(PREFS_KEY_THEME, false) // Default to false (light mode) if not found
-        }
+
+    private fun getThemePreference(): Boolean {
+        val prefs: SharedPreferences = getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE)
+        return prefs.getBoolean(
+            PREFS_KEY_THEME,
+            false
+        ) // Default to false (light mode) if not found
+    }
 
 }
 
