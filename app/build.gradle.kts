@@ -65,7 +65,9 @@ dependencies {
     implementation ("com.google.firebase:firebase-bom:32.7.0")
     implementation ("com.google.android.gms:play-services-auth:20.5.0")
 
-    implementation ("com.facebook.android:facebook-login:14.0.0") // Replace with the latest version
+
+    implementation ("com.facebook.android:facebook-login:latest.release")
+
 
 
 

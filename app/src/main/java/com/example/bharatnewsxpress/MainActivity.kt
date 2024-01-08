@@ -14,6 +14,8 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import com.example.bharatnewsxpress.databinding.ActivityMainBinding
+import com.facebook.AccessToken
+import com.facebook.GraphRequest
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -38,10 +40,6 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
-
-
-
-
 
         swipeRefreshLayout = findViewById(R.id.swipeRefreshLayout)
         recyclerView = findViewById(R.id.recyclerView)
@@ -69,7 +67,6 @@ class MainActivity : AppCompatActivity() {
                 }
                 return true
             }
-
             override fun onQueryTextChange(newText: String?): Boolean {
                 return true
             }

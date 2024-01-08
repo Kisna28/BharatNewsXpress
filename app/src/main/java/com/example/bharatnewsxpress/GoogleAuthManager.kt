@@ -25,7 +25,8 @@ class GoogleAuthManager(private val activity: Activity) {
 
     private fun initializeGoogleSignIn() {
         val gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
-            .requestIdToken(activity.getString(R.string.default_web_client_id)).requestEmail().build()
+            .requestIdToken(activity.getString(R.string.default_web_client_id)).requestEmail()
+            .build()
         googleSignInClient = GoogleSignIn.getClient(activity, gso)
         auth = FirebaseAuth.getInstance()
     }
@@ -42,18 +43,18 @@ class GoogleAuthManager(private val activity: Activity) {
             val credential = GoogleAuthProvider.getCredential(account?.idToken, null)
             signInWithCredential(credential)
         } catch (e: ApiException) {
-            Toast.makeText(activity, "Failed", Toast.LENGTH_SHORT).show()
+            Toast.makeText(activity, "Failed To Login With Google", Toast.LENGTH_SHORT).show()
         }
     }
 
     private fun signInWithCredential(credential: AuthCredential) {
         auth.signInWithCredential(credential).addOnCompleteListener { task ->
             if (task.isSuccessful) {
-                val intent =Intent(activity,MainActivity::class.java)
+                // Navigate to the next activity or perform other actions
+                val intent = Intent(activity, MainActivity::class.java)
                 activity.startActivity(intent)
                 activity.finish()
                 Toast.makeText(activity, "Successfully SignUp", Toast.LENGTH_SHORT).show()
-            // Navigate to the next activity or perform other actions
             } else {
                 Toast.makeText(activity, "Failed", Toast.LENGTH_SHORT).show()
             }

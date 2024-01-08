@@ -38,14 +38,16 @@ class SignUpEmail(private val context: Context,private  val activity : Activity)
         }
     }
     private fun validateInput(email: String, password: String, confirmPassword: String): Boolean {
-        if (email.isNotEmpty() && password.isNotEmpty() && confirmPassword.isNotEmpty()) {
+        return if (email.isNotEmpty() && password.isNotEmpty() && confirmPassword.isNotEmpty()) {
             if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
                 Toast.makeText(context, "Enter Vailed Email Addressee", Toast.LENGTH_SHORT).show()
             }
-            return true
+
+            true
+
         } else {
             Toast.makeText(context, "Empty field is not allowed", Toast.LENGTH_SHORT).show()
-            return false
+            false
         }
     }
 }
