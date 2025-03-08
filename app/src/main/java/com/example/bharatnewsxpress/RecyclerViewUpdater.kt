@@ -1,6 +1,7 @@
 package com.example.bharatnewsxpress
 
 import android.content.Context
+import android.content.Intent
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
@@ -11,10 +12,17 @@ class RecyclerViewUpdater(private val context: Context,
     private lateinit var myAdapter: MyAdapter
 
     fun updateRecyclerView(resultList: List<Article>) {
-        myAdapter = MyAdapter(context, resultList)
-        recyclerView.adapter = myAdapter
-        recyclerView.layoutManager = LinearLayoutManager(context)
+        myAdapter = MyAdapter(context, resultList) { article ->
 
-        swipeRefreshLayout.isRefreshing = false
+            val intent = Intent(context, DetailsActivity::class.java)
+            intent.putExtra("ARTICLE", article)
+            context.startActivity(intent)
+        }
+
+            recyclerView.adapter = myAdapter
+            recyclerView.layoutManager = LinearLayoutManager(context)
+
+            swipeRefreshLayout.isRefreshing = false
+
     }
 }

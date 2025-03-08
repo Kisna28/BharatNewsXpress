@@ -1,15 +1,12 @@
 package com.example.bharatnewsxpress
 
-import android.content.Context
+import android.annotation.SuppressLint
 import android.content.Intent
-import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.util.Patterns
-import android.widget.Switch
 import android.widget.Toast
-import androidx.appcompat.app.AppCompatDelegate
 import com.example.bharatnewsxpress.databinding.ActivityLogInBinding
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
@@ -18,37 +15,29 @@ class LogInActivity : AppCompatActivity() {
     private lateinit var binding: ActivityLogInBinding
     private lateinit var firebaseAuth: FirebaseAuth
 
-    private val PREFS_NAME = "ThemePrefs"
-    private val PREFS_KEY_THEME = "theme"
-
-
+    @SuppressLint("UseSwitchCompatOrMaterialCode")
     override fun onCreate(savedInstanceState: Bundle?) {
-        applyTheme()
         super.onCreate(savedInstanceState)
+
         binding = ActivityLogInBinding.inflate(layoutInflater)
         setContentView(binding.root)
         firebaseAuth = FirebaseAuth.getInstance()
-        val switch = findViewById<Switch>(R.id.switchTheme)
-        switch.isChecked = getThemePreference()
-        switch.setOnCheckedChangeListener { buttonView, isChecked ->
-            if (isChecked) {
-                saveThemePreference(true)
-                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
-                buttonView.text = "Night Mode"
-            } else {
-                saveThemePreference(false)
-                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
-                buttonView.text = "Light Mode"
-            }
 
+        binding.guestLogin.setOnClickListener{
+            val intent = Intent(this,MainActivity::class.java)
+            startActivity(intent)
+            finish()
         }
+
         binding.textView.setOnClickListener {
             val intent = Intent(this, SignUpActivity::class.java)
             startActivity(intent)
+            finish()
         }
         binding.textViewlog.setOnClickListener {
             val intent = Intent(this, SignUpActivity::class.java)
             startActivity(intent)
+            finish()
         }
         binding.button.setOnClickListener {
             val email = binding.email.text.toString()
@@ -56,7 +45,7 @@ class LogInActivity : AppCompatActivity() {
 
             if (email.isNotEmpty() && pass.isNotEmpty()) {
                 if (!Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
-                    Toast.makeText(this, "Enter Vailed Email Addressee", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this, "Enter Valid Email Addressee", Toast.LENGTH_SHORT).show()
                 }
                 firebaseAuth.signInWithEmailAndPassword(email, pass)
                     .addOnCompleteListener {
@@ -64,7 +53,6 @@ class LogInActivity : AppCompatActivity() {
                             Toast.makeText(this, "Successfully LoggedIn", Toast.LENGTH_SHORT).show()
                             val intent = Intent(this, MainActivity::class.java)
                             startActivity(intent)
-
                         } else {
                             Log.e("LoginActivity", "Login failed", it.exception)
                             Toast.makeText(this, "Login failed", Toast.LENGTH_LONG).show()
@@ -83,7 +71,7 @@ class LogInActivity : AppCompatActivity() {
     override fun onStart() {
         super.onStart()
         // Check if user is signed in (non-null) and update UI accordingly.
-        var currentUser = firebaseAuth.getCurrentUser()
+        val currentUser = firebaseAuth.currentUser
         updateUI(currentUser)
     }
 
@@ -103,31 +91,6 @@ class LogInActivity : AppCompatActivity() {
         }
     }
 
-    private fun applyTheme() {
-        // Retrieve the saved theme preference and set the theme
-        val isDarkMode = getThemePreference()
-        if (isDarkMode) {
-            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
-        } else {
-            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
-        }
-    }
-
-    private fun saveThemePreference(isDarkMode: Boolean) {
-        // Save the theme preference
-        val prefs: SharedPreferences = getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE)
-        val editor = prefs.edit()
-        editor.putBoolean(PREFS_KEY_THEME, isDarkMode)
-        editor.apply()
-    }
-
-    private fun getThemePreference(): Boolean {
-        val prefs: SharedPreferences = getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE)
-        return prefs.getBoolean(
-            PREFS_KEY_THEME,
-            false
-        ) // Default to false (light mode) if not found
-    }
 
 }
 

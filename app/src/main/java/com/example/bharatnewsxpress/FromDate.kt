@@ -5,16 +5,19 @@ import androidx.annotation.RequiresApi
 import java.time.LocalDate
 import java.time.format.DateTimeFormatter
 
-class fromdate {
+class FromDate {
     @RequiresApi(Build.VERSION_CODES.O)
-    val currentDate = LocalDate.now()
+    private val formatter: DateTimeFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd")
 
     @RequiresApi(Build.VERSION_CODES.O)
-    val oneDayBeforeDate = currentDate.minusDays(1)
+    val currentDate: LocalDate = LocalDate.now()
+
+    @RequiresApi(Build.VERSION_CODES.O)
+    val oneDayBeforeDate: LocalDate = currentDate.minusDays(1)
 
     @RequiresApi(Build.VERSION_CODES.O)
     fun dateApi(): String {
-        return oneDayBeforeDate.format(DateTimeFormatter.ofPattern("yyyy-MM-dd"))
+        return oneDayBeforeDate.format(formatter)
     }
 
 }

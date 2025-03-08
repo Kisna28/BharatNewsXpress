@@ -1,33 +1,20 @@
 package com.example.bharatnewsxpress
 
+import android.content.Intent
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
-
 import android.widget.SearchView
 import android.widget.Toast
 import androidx.annotation.RequiresApi
-import androidx.core.content.contentValuesOf
-
-import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import com.example.bharatnewsxpress.databinding.ActivityMainBinding
-import com.facebook.AccessToken
-import com.facebook.GraphRequest
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
-import retrofit2.Retrofit
-import retrofit2.converter.gson.GsonConverterFactory
-import java.text.SimpleDateFormat
-import java.util.Locale
 
 class MainActivity : AppCompatActivity() {
 
     val binding: ActivityMainBinding by lazy { ActivityMainBinding.inflate(layoutInflater) }
-    private lateinit var currentData: List<Article>
+    private  var currentData: List<Article> = emptyList()
     lateinit var recyclerView: RecyclerView
     lateinit var swipeRefreshLayout: SwipeRefreshLayout
     lateinit var myAdapter: MyAdapter
@@ -53,6 +40,18 @@ class MainActivity : AppCompatActivity() {
         dataManager = DataManager(this)
         dataManager.fetchData(currentQuery)
         SearchNews()
+
+        // Example: Assuming currentData holds your articles
+        myAdapter = MyAdapter(this,currentData) { selectedArticle ->
+            // Navigate to DetailActivity with the selected article
+            val intent = Intent(this, DetailsActivity::class.java).apply {
+                putExtra("ARTICLE", selectedArticle)
+            }
+           startActivity(intent)
+        }
+
+        recyclerView.adapter = myAdapter
+
     }
 
     private fun SearchNews() {
@@ -76,13 +75,13 @@ class MainActivity : AppCompatActivity() {
 
 
     fun updateRecyclerView(resultList: List<Article>) {
-        RecyclerViewUpdater(this,recyclerView,swipeRefreshLayout).updateRecyclerView(resultList)
+       RecyclerViewUpdater(this,recyclerView,swipeRefreshLayout).updateRecyclerView(resultList)
         Toast.makeText(this, "Data Refreshed", Toast.LENGTH_SHORT).show()
     }
 
 
     val apiDateString = "2023-01-01T12:34:56Z"
-    val formattedDate  = DateUtils.formatApiDate(apiDateString)
+    val formxattedDate  = DateUtils.formatApiDate(apiDateString)
 }
 
 

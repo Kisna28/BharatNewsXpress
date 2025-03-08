@@ -35,9 +35,7 @@
             android:scrollbars="horizontal" />
 
 
-
     </LinearLayout>
-
 
 
 </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>

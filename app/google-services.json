@@ -2,7 +2,7 @@
   "project_info": {
     "project_number": "1061294421602",
     "project_id": "bharat-newsxpress",
-    "storage_bucket": "bharat-newsxpress.appspot.com"
+    "storage_bucket": "bharat-newsxpress.firebasestorage.app"
   },
   "client": [
     {

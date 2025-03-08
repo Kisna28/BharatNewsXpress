@@ -13,22 +13,10 @@
     android:gravity="center"
     tools:context=".MainActivity">
 
-    <Switch
-        android:layout_gravity="end"
-        android:id="@+id/switchTheme"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:checked="false"
-        android:text="Light Mode"
-        android:textSize="30sp"
-        android:textStyle="bold"
-        android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true" />
-
     <com.airbnb.lottie.LottieAnimationView
         android:id="@+id/welcome"
         android:layout_width="300dp"
-        android:layout_height="250dp"
+        android:layout_height="155dp"
         app:lottie_autoPlay="true"
         app:lottie_loop="true"
         app:lottie_rawRes="@raw/welcomejson" />
@@ -62,10 +50,12 @@
                 android:id="@+id/email"
                 android:layout_marginTop="40dp"
                 android:padding="8dp"
+                android:inputType="textEmailAddress"
                 android:background="@drawable/text"
                 android:hint="Email"
                 android:drawableLeft="@drawable/baseline_person_4_24"
-                android:drawablePadding="8dp" />
+                android:drawablePadding="8dp"
+                android:imeOptions="actionNext" />
 
             <EditText
                 android:layout_width="match_parent"
@@ -73,10 +63,13 @@
                 android:id="@+id/password"
                 android:layout_marginTop="40dp"
                 android:padding="8dp"
+                android:inputType="textPassword"
                 android:background="@drawable/text"
                 android:hint="Password"
                 android:drawableLeft="@drawable/baseline_lock_person_24"
-                android:drawablePadding="8dp" />
+                android:drawablePadding="8dp"
+                android:imeOptions="actionDone"
+                app:passwordToggleEnabled="true" />
 
             <Button
                 android:id="@+id/button"
@@ -87,6 +80,19 @@
                 android:layout_marginTop="30dp"
                 android:backgroundTint="@color/blue"
                 app:cornerRadius="20dp"/>
+
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/guestLogin"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:text="Guest"
+                app:rippleColor="@color/blue"
+                android:textSize="18sp"
+                android:layout_marginTop="30dp"
+                android:backgroundTint="#d3d3d3"
+                app:cornerRadius="20dp"/>
+
 
         </LinearLayout>
 

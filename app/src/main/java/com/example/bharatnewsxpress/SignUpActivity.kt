@@ -14,12 +14,10 @@ import com.facebook.FacebookException
 import com.facebook.GraphRequest
 import com.facebook.login.LoginManager
 import com.facebook.login.LoginResult
-import com.facebook.login.widget.LoginButton
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
 import com.google.firebase.Firebase
 import com.google.firebase.auth.FacebookAuthProvider
 import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.auth.auth
 
 
@@ -46,10 +44,12 @@ class SignUpActivity : AppCompatActivity() {
         binding.textViewsu.setOnClickListener {
             val intent = Intent(this, LogInActivity::class.java)
             startActivity(intent)
+            finish()
         }
         binding.textViewsign.setOnClickListener {
             val intent = Intent(this, LogInActivity::class.java)
             startActivity(intent)
+            finish()
         }
         binding.google.setOnClickListener {
             googleAuthManager.signInWithGoogle()
@@ -86,6 +86,12 @@ class SignUpActivity : AppCompatActivity() {
                                         Log.d("FACEBOOKDATA", obj.getString("name"))
                                         Log.d("FACEBOOKDATA", obj.getString("email"))
                                         Log.d("FACEBOOKDATA",obj.getString("picture"))
+
+                                        val intent = Intent(this@SignUpActivity, MainActivity::class.java)
+                                        startActivity(intent)
+                                        finish()
+                                        Toast.makeText(baseContext, "Facebook Successfully", Toast.LENGTH_SHORT).show()
+
                                         if (FirebaseAuth.getInstance().currentUser != null) {
                                             // User is already authenticated, go to the main activity
                                             val intent = Intent(this@SignUpActivity, MainActivity::class.java)
@@ -97,6 +103,7 @@ class SignUpActivity : AppCompatActivity() {
                                             // Call handleFacebookAccessToken to complete the authentication
                                             handleFacebookAccessToken(loginResult.accessToken)
                                         }
+
                                     }
                                 }
                             } catch (e: Exception) {
@@ -106,10 +113,8 @@ class SignUpActivity : AppCompatActivity() {
                     param.putString("fields", "name,email,id,picture.type(large)")
                     graphRequest.parameters = param
                     graphRequest.executeAsync()
-
-                    handleFacebookAccessToken(loginResult.accessToken)
+                //   handleFacebookAccessToken(loginResult.accessToken)
                 }
-
                 override fun onCancel() {
                     Log.d(TAG, "facebook:onCancel")
                 }
@@ -119,7 +124,6 @@ class SignUpActivity : AppCompatActivity() {
             },
         )
     }
-
     private fun handleFacebookAccessToken(token: AccessToken) {
         Log.d(TAG, "handleFacebookAccessToken:$token")
 
@@ -129,18 +133,6 @@ class SignUpActivity : AppCompatActivity() {
                 if (task.isSuccessful) {
                     // Sign in success, update UI with the signed-in user's information
                     Log.d(TAG, "signInWithCredential:success")
-                    val user = FirebaseAuth.getInstance().currentUser
-                   /* if (user != null) {
-
-                    } else {
-                        // If sign in fails, display a message to the user.
-                        Log.w(TAG, "signInWithCredential:failure", task.exception)
-                        Toast.makeText(
-                            baseContext,
-                            "Authentication failed.",
-                            Toast.LENGTH_SHORT,
-                        ).show()
-                    }*/
                 }
             }
     }

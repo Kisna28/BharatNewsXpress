@@ -58,7 +58,9 @@
                     android:drawableLeft="@drawable/baseline_person_4_24"
                     android:drawablePadding="8dp"
                     android:hint="Email"
-                    android:padding="8dp" />
+                    android:padding="8dp"
+                    android:inputType="textEmailAddress"
+                    android:imeOptions="actionNext"/>
 
                 <EditText
                     android:id="@+id/editTextPassword"
@@ -69,7 +71,10 @@
                     android:drawableLeft="@drawable/baseline_lock_person_24"
                     android:drawablePadding="8dp"
                     android:hint="Password"
-                    android:padding="8dp" />
+                    android:padding="8dp"
+                    android:inputType="textPassword"
+                    android:imeOptions="actionNext"
+                    app:passwordToggleEnabled="true"/>
 
                 <EditText
                     android:id="@+id/editTextConfirmPassword"
@@ -80,7 +85,10 @@
                     android:drawableLeft="@drawable/baseline_lock_person_24"
                     android:drawablePadding="8dp"
                     android:hint="Conform Password"
-                    android:padding="8dp" />
+                    android:padding="8dp"
+                    android:inputType="textPassword"
+                    android:imeOptions="actionDone"
+                    app:passwordToggleEnabled="true"/>
 
                 <Button
                     android:id="@+id/buttonSignUp"

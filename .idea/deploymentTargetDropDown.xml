@@ -7,19 +7,19 @@
         <deviceKey>
           <Key>
             <type value="VIRTUAL_DEVICE_PATH" />
-            <value value="C:\Users\kisna\.android\avd\Pixel_6_API_31.avd" />
+            <value value="C:\Users\kisna\.android\avd\Copy_of_Pixel_4a_Edited_API_30.avd" />
           </Key>
         </deviceKey>
       </Target>
     </targetSelectedWithDropDown>
-    <timeTargetWasSelectedWithDropDown value="2024-01-08T05:17:07.358122300Z" />
+    <timeTargetWasSelectedWithDropDown value="2025-02-03T13:58:32.181878700Z" />
     <targetsSelectedWithDialog>
       <Target>
         <type value="QUICK_BOOT_TARGET" />
         <deviceKey>
           <Key>
             <type value="VIRTUAL_DEVICE_PATH" />
-            <value value="C:\Users\kisna\.android\avd\Pixel_5_API_31.avd" />
+            <value value="C:\Users\kisna\.android\avd\Pixel_3_API_24.avd" />
           </Key>
         </deviceKey>
       </Target>
@@ -28,7 +28,7 @@
         <deviceKey>
           <Key>
             <type value="VIRTUAL_DEVICE_PATH" />
-            <value value="C:\Users\kisna\.android\avd\Pixel_6_API_31.avd" />
+            <value value="C:\Users\kisna\.android\avd\Pixel_4a_Edited_API_30.avd" />
           </Key>
         </deviceKey>
       </Target>
