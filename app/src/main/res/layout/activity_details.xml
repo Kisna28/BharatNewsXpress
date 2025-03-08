@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="5dp"
+    tools:context=".DetailsActivity">
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/Detailsauthor"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="5dp"
+        android:padding="2dp"
+        android:text="Author"
+        android:textAlignment="center"
+        android:textColor="@color/gray"
+        android:textSize="@dimen/_13ssp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/DetailsTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="5dp"
+        android:padding="2dp"
+        android:text="Roadzen Chosen by One of the World's Largest LPG Carriers to Bring AI to its Fleet for Road Safety and Compliance"
+        android:textSize="@dimen/_15ssp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/Detailsauthor" />
+
+    <LinearLayout
+        android:id="@+id/DetailLinear"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="5dp"
+        android:orientation="horizontal"
+        android:padding="2dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/DetailsTitle">
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/DetailsName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Starcommunity.com.au"
+            android:textColor="@color/gray"
+            android:textSize="@dimen/_11ssp" />
+
+        <TextView
+            android:id="@+id/DetailsDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="7dp"
+            android:layout_marginEnd="5dp"
+            android:text="28-12-2004"
+            android:textColor="@color/gray"
+            app:layout_constraintStart_toEndOf="@id/DetailsName"
+            app:layout_constraintTop_toBottomOf="@id/DetailsTitle" />
+
+    </LinearLayout>
+
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/DetailCardView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="5dp"
+        android:background="@drawable/text"
+        app:cardCornerRadius="30dp"
+        app:cardElevation="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/DetailLinear">
+
+        <ImageView
+            android:id="@+id/DetailsImage"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginEnd="5dp"
+            android:adjustViewBounds="true"
+            android:scaleType="fitCenter"
+            android:src="@drawable/facebooklogo" />
+
+    </com.google.android.material.card.MaterialCardView>
+
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/DetailsDesc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="5dp"
+        android:focusable="true"
+        android:padding="2dp"
+        android:screenReaderFocusable="true"
+        android:scrollbars="vertical"
+        android:text="President-elect Donald Trump announced Saturday he would nominate Houston billionaire hospitality mogul Tilman Fertitta to serve as U.S. ambassador to Italy.\r\nFertitta, owner of the Houston Rockets a… [+1750 chars]"
+        android:textSize="@dimen/_16ssp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/DetailCardView"
+        tools:targetApi="p" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/DetailReadMoreButton"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="5dp"
+        android:layout_marginBottom="20dp"
+        android:backgroundTint="@color/orange"
+        android:clickable="true"
+        android:gravity="center"
+        android:padding="10dp"
+        android:text="Read More"
+        android:textColor="@color/white"
+        android:textSize="@dimen/_18ssp"
+        app:cornerRadius="20dp"
+        app:icon="@drawable/baseline_read_more_24"
+        app:iconGravity="end"
+        app:iconSize="50dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@id/DetailsDesc"
+        app:layout_constraintStart_toStartOf="@id/DetailsDesc"
+        app:rippleColor="@color/blue" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+
