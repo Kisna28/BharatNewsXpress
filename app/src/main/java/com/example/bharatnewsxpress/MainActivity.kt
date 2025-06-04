@@ -52,6 +52,7 @@ class MainActivity : AppCompatActivity() {
 
         recyclerView.adapter = myAdapter
 
+
     }
 
     private fun SearchNews() {
