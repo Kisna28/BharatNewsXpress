@@ -19,10 +19,9 @@ class RecyclerViewUpdater(private val context: Context,
             context.startActivity(intent)
         }
 
-            recyclerView.adapter = myAdapter
             recyclerView.layoutManager = LinearLayoutManager(context)
-
-            swipeRefreshLayout.isRefreshing = false
+            recyclerView.adapter = myAdapter
+             swipeRefreshLayout.isRefreshing = false
 
     }
 }

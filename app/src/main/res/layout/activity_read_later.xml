@@ -20,24 +20,15 @@
             android:gravity="center"
             android:orientation="vertical">
 
-        <SearchView
-            android:id="@+id/search"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="15dp"
-            android:background="@drawable/searchviewshape"
-            android:iconifiedByDefault="false"
-            android:queryHint="News..." />
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recyclerView"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginTop="8dp"
-            android:clipToPadding="false"
-            android:padding="8dp"
-            android:scrollbars="horizontal" />
-
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="8dp"
+                android:clipToPadding="false"
+                android:padding="8dp"
+                android:scrollbars="horizontal" />
 
 
         </LinearLayout>
@@ -64,12 +55,3 @@
         android:background="@color/blue"/>
 
 </LinearLayout>
-
-
-
-
-
-
-
-
-

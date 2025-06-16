@@ -18,17 +18,17 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.BharatNewsXpress"
         tools:targetApi="31">
-
+        <activity
+            android:name=".ReadLaterActivity"
+            android:exported="false" />
         <activity
             android:name=".SplashScreen"
             android:exported="true">
-
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-
         </activity>
         <activity
             android:name=".SignUpActivity"
@@ -51,7 +51,8 @@
             android:exported="false" />
         <activity
             android:name=".DetailsActivity"
-            android:exported="false"/>
+            android:exported="false" />
+
         <meta-data
             android:name="com.facebook.sdk.ApplicationId"
             android:value="@string/facebook_app_id" />
