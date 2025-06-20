@@ -11,7 +11,8 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.squareup.picasso.Picasso
 
-class MyAdapter(val context: Context, private var resultArrayList: List<Article>,   private val onItemClick: (Article) -> Unit) :
+class MyAdapter(val context: Context, private var resultArrayList: List<Article>,   private val onItemClick: (Article) -> Unit,
+                private val onBookmarkClick: (Article) -> Unit  ) :
     RecyclerView.Adapter<MyAdapter.MyViewHolder>() {
 
 
@@ -26,14 +27,21 @@ class MyAdapter(val context: Context, private var resultArrayList: List<Article>
         holder.title.text = currentItem.title
         holder.title.maxLines = 2
         holder.title.ellipsize = TextUtils.TruncateAt.END
-        holder.itemView.setOnClickListener{
-            onItemClick(currentItem)
-        }
-
         val formattedDate = DateUtils
         holder.date.text = formattedDate.formatApiDate(currentItem.publishedAt)
         holder.source.text = currentItem.source?.name ?: "Unknown Source"
         Picasso.get().load(currentItem.urlToImage).into(holder.image)
+        // ✅ Open article details
+        holder.itemView.setOnClickListener {
+            onItemClick(currentItem)
+        }
+
+        // ✅ Save to read later
+        holder.bookmark.setImageResource(R.drawable.bookmark_outline)
+        holder.bookmark.setOnClickListener {
+            onBookmarkClick(currentItem)
+            holder.bookmark.setImageResource(R.drawable.bookmark_filled)
+        }
 
     }
     override fun getItemCount(): Int {
@@ -51,6 +59,8 @@ class MyAdapter(val context: Context, private var resultArrayList: List<Article>
         val source: TextView = itemView.findViewById(R.id.sourcevl)
         val date: TextView = itemView.findViewById(R.id.date)
         val image: ImageView = itemView.findViewById(R.id.imagevt)
+        val bookmark: ImageView = itemView.findViewById(R.id.bookMark)
+
     }
 }
 

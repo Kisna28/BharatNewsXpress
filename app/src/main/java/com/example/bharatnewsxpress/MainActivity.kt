@@ -8,15 +8,20 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.SearchView
 import android.widget.Toast
+import android.widget.Toast.makeText
 import androidx.annotation.RequiresApi
+import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.RecyclerView
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+import com.example.bharatnewsxpress.data.AppDatabase
+import com.example.bharatnewsxpress.data.ArticleEntity
 import com.example.bharatnewsxpress.databinding.ActivityMainBinding
+import kotlinx.coroutines.launch
 import java.util.Collections.emptyList
 
 class MainActivity : AppCompatActivity() {
 
-    val binding: ActivityMainBinding by lazy { ActivityMainBinding.inflate(layoutInflater) }
+     lateinit var binding: ActivityMainBinding
     private var currentData: List<Article> = emptyList()
     lateinit var recyclerView: RecyclerView
     lateinit var swipeRefreshLayout: SwipeRefreshLayout
@@ -29,6 +34,7 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         binding.bottomNav.selectedItemId = R.id.nav_news
@@ -51,31 +57,6 @@ class MainActivity : AppCompatActivity() {
         }
 
 
-/*
-        swipeRefreshLayout = findViewById(R.id.swipeRefreshLayout)
-        recyclerView = findViewById(R.id.recyclerView)
-        swipeRefreshLayout.setOnRefreshListener {
-            // Initialize DataManager
-            dataManager = DataManager(this)
-            // Call fetchData from DataManager
-            dataManager.fetchData(currentQuery)
-
-        }
-        dataManager = DataManager(this)
-        dataManager.fetchData(currentQuery)
-        SearchNews()
-
-        // Example: Assuming currentData holds your articles
-        myAdapter = MyAdapter(this, currentData) { selectedArticle ->
-            // Navigate to DetailActivity with the selected article
-            val intent = Intent(this, DetailsActivity::class.java).apply {
-                putExtra("ARTICLE", selectedArticle)
-            }
-            startActivity(intent)
-        }
-
-        recyclerView.adapter = myAdapter
-*/
 
         swipeRefreshLayout = findViewById(R.id.swipeRefreshLayout)
         recyclerView = findViewById(R.id.recyclerView)
@@ -130,7 +111,7 @@ class MainActivity : AppCompatActivity() {
     fun updateRecyclerView(resultList: List<Article>) {
         currentData = resultList  // ✅ keep current data
         RecyclerViewUpdater(this, recyclerView, swipeRefreshLayout).updateRecyclerView(resultList)
-        Toast.makeText(this, "Data Refreshed", Toast.LENGTH_SHORT).show()
+        makeText(this, "Data Refreshed", Toast.LENGTH_SHORT).show()
     }
 
 

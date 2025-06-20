@@ -15,3 +15,5 @@ data class Article(
     val url: String?,
     val urlToImage: String?
 ):Parcelable
+
+
