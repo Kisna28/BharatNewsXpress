@@ -31,7 +31,11 @@ class ReadLaterAdapter(
             titleRl.text = article.title
             sourceRl.text = article.sourceName
             dateRl.text = article.publishedAt
-            Picasso.get().load(article.urlToImage).into(holder.binding.imageRl)
+            if (!article.urlToImage.isNullOrEmpty()) {
+                Picasso.get().load(article.urlToImage).into(holder.binding.imageRl)
+            } else {
+                holder.binding.imageRl.setImageResource(R.drawable.searchviewshape)
+            }
 
             root.setOnClickListener {
                 onItemClick(article)

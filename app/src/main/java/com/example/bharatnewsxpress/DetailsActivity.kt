@@ -34,7 +34,12 @@ class DetailsActivity : AppCompatActivity() {
             binding.DetailsName.text = it.source?.name ?: "Unknown Source"
             binding.DetailsDate.text = it.publishedAt
             binding.DetailsImage.let { imageView ->
-                Picasso.get().load(it.urlToImage).into(imageView)
+
+                if(!it.urlToImage.isNullOrEmpty()){
+                    Picasso.get().load(it.urlToImage).error(R.drawable.searchviewshape).into(imageView)
+                }else{
+                    imageView.setImageResource(R.drawable.searchviewshape)
+                }
             }
             binding.DetailsDesc.text = it.description
             binding.DetailReadMoreButton.setOnClickListener {

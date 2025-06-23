@@ -33,7 +33,6 @@ class ReadLaterActivity : AppCompatActivity() {
                 startActivity(intent)
             },
             onBookmarkClick = { article ->
-                // ✅ Delete from Room
                 lifecycleScope.launch {
                     dao.delete(article)
                     Toast.makeText(this@ReadLaterActivity, "Removed", Toast.LENGTH_SHORT).show()
