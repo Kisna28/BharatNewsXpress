@@ -1,18 +1,17 @@
-# 🇮🇳 BharatNewsXpress
+# BharatNewsXpress
 
 **BharatNewsXpress** is a modern, fast, and reliable Indian news app that brings the latest headlines, trending stories, and category-wise news right to your fingertips — in real-time. Built for Android, it’s a sleek and efficient news reader that keeps Bharat informed!
 
 ---
 
-![BharatNewsXpress Banner]![Screenshot_20250622_224337](https://github.com/user-attachments/assets/68a994e9-d88a-441b-be18-0d5b303d5daa)
+![BharatNewsXpress]![Screenshot_20250622_224337](https://github.com/user-attachments/assets/68a994e9-d88a-441b-be18-0d5b303d5daa)
 
 
 ## 📱 Screenshots
 
-| Home Screen | News Details | Categories |
+| Home Screen | News Details | Read Later |
 |-------------|--------------|------------|
-| ![Home]![Screenshot_20250622_224647](https://github.com/user-attachments/assets/d349c1be-4cf3-4467-8cf3-994ddc1a3d9d)| ![Details]![Screenshot_20250623_204100](https://github.com/user-attachments/assets/3fc823d8-cd91-44eb-8a09-cb6ce131ac21)
- | ![Read Later]![Screenshot_20250623_204148](https://github.com/user-attachments/assets/fd18b5e7-9460-44bb-9830-2b99d956e678)|
+| ![Home]![Screenshot_20250622_224647](https://github.com/user-attachments/assets/d349c1be-4cf3-4467-8cf3-994ddc1a3d9d)| ![Details]![Screenshot_20250623_204100](https://github.com/user-attachments/assets/3fc823d8-cd91-44eb-8a09-cb6ce131ac21)| ![Read Later]![Screenshot_20250623_204148](https://github.com/user-attachments/assets/fd18b5e7-9460-44bb-9830-2b99d956e678)|
 
 ---
 
