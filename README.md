@@ -4,9 +4,6 @@
 
 ---
 
-! [BharatNewsXpress]! [Screenshot_20250622_224337](https://github.com/user-attachments/assets/68a994e9-d88a-441b-be18-0d5b303d5daa)
-
-
 ## 📱 Screenshots
 
 | Log In | Sign Up | Home Screen | News Details | Read Later |
