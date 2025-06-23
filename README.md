@@ -10,8 +10,8 @@
 ## 📱 Screenshots
 
 | Log In | Sign Up | Home Screen | News Details | Read Later |
-|-------------|--------------|------------|
-| ![Log In]![Screenshot_20250623_204210](https://github.com/user-attachments/assets/8d255d70-fd7a-4c8f-a4a0-25edce530e8c)| ![Sign Up]!![Screenshot_20250623_204219](https://github.com/user-attachments/assets/c2ff93ca-00c1-4471-b5d2-4e7ba834eb3d) ![Home]![Screenshot_20250622_224647](https://github.com/user-attachments/assets/d349c1be-4cf3-4467-8cf3-994ddc1a3d9d)| ![Details]![Screenshot_20250623_204100](https://github.com/user-attachments/assets/3fc823d8-cd91-44eb-8a09-cb6ce131ac21)| ![Read Later]![Screenshot_20250623_204148](https://github.com/user-attachments/assets/fd18b5e7-9460-44bb-9830-2b99d956e678)|
+|--------|---------|-------------|---------------|------------|
+| ![Log In](https://github.com/user-attachments/assets/8d255d70-fd7a-4c8f-a4a0-25edce530e8c) | ![Sign Up](https://github.com/user-attachments/assets/c2ff93ca-00c1-4471-b5d2-4e7ba834eb3d) | ![Home](https://github.com/user-attachments/assets/d349c1be-4cf3-4467-8cf3-994ddc1a3d9d) | ![Details](https://github.com/user-attachments/assets/3fc823d8-cd91-44eb-8a09-cb6ce131ac21) | ![Read Later](https://github.com/user-attachments/assets/fd18b5e7-9460-44bb-9830-2b99d956e678) |
 
 ---
 
